@@ -31,13 +31,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 //Codigo para trabajar con sesiones
 app.use(session({
   secret: 'hjasdiuwuyeq78we',
   cookie: {maxAge: null},
   resave: false,
   saveUninitialized: true
-}))
+}));
+
+
 
 secured = async (req, res, next) =>{
   try{
