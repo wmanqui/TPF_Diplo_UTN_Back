@@ -9,9 +9,6 @@ require('dotenv').config();
 //Genero variable para trabajar con sesiones
 var session = require('express-session');
 
-//Genero variable pool, con los datos extraidos de la base de datos           
-//var pool = require('./models/bd.js')  
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 //Genero variable "loginRouter"
@@ -40,8 +37,7 @@ app.use(session({
   saveUninitialized: true
 }));
 
-
-
+//Variable de seguridad
 secured = async (req, res, next) =>{
   try{
     console.log(req.session.id_usuario);
@@ -60,56 +56,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 //Indico en que momento voy a utilizar la variable "loginRouter"
 app.use('/admin/login', loginRouter); 
-//Indico en que momento voy a utilizar la variable "adminRouter"
+//Indico que primero ejecuto la variavle "secured" y luego la variable "adminRouter"
 app.use('/admin/news',secured, adminRouter);
-
-
-/*
-//Realizo consulta a la base de datos empleados 
-pool.query('select usuario,password from usuarios ').then(function(resultados){
-  console.log(resultados)
-});
-*/
-
-
-/*
-//Inserto datos en la base de datos empleados
-var obj = {
-  nombre: 'Juan',
-  apellido: 'Lopez',
-  trabajo: 'docente',
-  edad: 38,
-  salario: 1500,
-  email: 'juanlopez@gmail.com'
-}
-
-pool.query('insert into empleados set ?',[obj]).then
-(function(resultados){
-  console.log(resultados)
-});
-
-*/
-/*
-//Actualizo la base de datos empleados
-var id=1;
-var obj={
-  nombre: 'Pablo',
-  apellido: 'Gomez'
-}
-
-pool.query('update empleados set? where id_emp=?',[obj,id]).then(function (resultados){
-  console.log(resultados);
-});
-*/
-
-/*
-//Borro registros de la base de datos empleados
-var id=23;
-
-pool.query('delete from empleados where id_emp=?', [id]).then(function (resultados){
-  console.log(resultados);
-})
-*/
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

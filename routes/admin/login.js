@@ -10,6 +10,15 @@ router.get('/', function(req, res, next) {
 });
 
 
+//Codigo para logout
+router.get('/logout',function(req, res, next) {
+  req.session.destroy();      //Destruye la variable de sesión id y usuario.
+  res.render('admin/login', {
+    layout: 'admin/layout'
+  });
+});
+
+
 router.post('/', async (req, res, next) => {
   try{
     var usuario = req.body.usuario;       //Captura nombre de usuario
