@@ -1,6 +1,10 @@
-<body class="bg_info d-flex justify-content-center align-items-center vh-100">
-  <div class="containeer" style="margin-top: 100px;">
-    <div class="row">
+<div class="bg_info d-flex justify-content-center align-items-center vh-100">
+  <div class="bg-white p-5 rounded-5 text-secondary shadow" style="width: 25rem">
+    <div class="d-flex justify-content-center">
+        <img src="/../img/login-icon.svg" alt="login-icon" style="height: 7rem" />
+    </div>
+    <div class="text-center fs-1 fw-bold">Login</div>
+      <div class="row">
         <form action="/admin/login" method="post">
             <div class="input-group mt-4">
                 <div class="input-group-text bg-info">
@@ -10,77 +14,25 @@
                   <input type="text" class="form-control bg-light" id="inputUser" placeholder="Usuario" name="usuario">
                 </div>
             </div>
-            <div class="nb-3 row">
+            <div class="input-group mt-1">
+                 <div class="input-group-text bg-info">
+                  <img src="/../img/password-icon.svg" alt="password-icon" style="height: 1rem"/>
+                </div>
                 <div class="col-sm-10">
                     <input type="password" class="form-control bg-light " id="inputPassword" placeholder="Contraseña" name="password">
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Ingresar</button>
+            <button type="submit" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm">Ingresar</button>
+            <div
+            class="btn d-flex gap-2 justify-content-center border mt-3 shadow-sm" >
+            </div>
         </form>
         {{#if error}}
-            <p>Usuario o Password incorrectos</p>
+            <p class="text-center text-danger">
+              Usuario y/o Contraseña incorrectos
+            </p>
         {{/if}}
-git 
-    </div>
+      </div>
   </div>
-</body>
+</div>
 
-<!--
-
-<body class="bg-white d-flex justify-content-center align-items-center vh-100">
-  <form action="/admin/login" method="post">
-    <div class="bg-white p-5 rounded-5 text-secondary shadow" style="width: 25rem">
-      <div class="d-flex justify-content-center">
-        <img src="/../img/login-icon.svg" alt="login-icon" style="height: 7rem" />
-      </div>
-      <div class="text-center fs-1 fw-bold">Login</div>
-      <div class="input-group mt-4">
-        <div class="input-group-text bg-info">
-          <img src="/../img/username-icon.svg" alt="username-icon" style="height: 1rem" />
-        </div>
-           <input class="form-control bg-light" type="text" id="imputUser" placeholder="Usuario" name="usuario"/>
-       </div>
-      <div class="input-group mt-1">
-        <div class="input-group-text bg-info">
-          <img src="/../img/password-icon.svg" alt="password-icon" style="height: 1rem"/>
-        </div>
-            <input class="form-control bg-light" type="password" id="imputPassword" placeholder="Contraseña" name="password"/>
-      </div>
-      <div class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm">
-        Ingresar
-      </div>
-      <div
-        class="btn d-flex gap-2 justify-content-center border mt-3 shadow-sm" >
-      </div>
- </form>
-</body>
-
--->
-
-
-
-<!--
-
-  <div class="containeer" style="margin-top: 100px;">
-    <div class="row">
-        <form action="/admin/login" method="post">
-            <div class="nb-3 row">
-                <div class="col-sm-10">
-                    <input type="text" class="form-control bg-light" id="inputUser" placeholder="Usuario" name="usuario">
-                </div>
-            </div>
-            <div class="nb-3 row">
-                <div class="col-sm-10">
-                    <input type="password" class="form-control bg-light " id="inputPassword" placeholder="Contraseña" name="password">
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Ingresar</button>
-        </form>
-        {{#if error}}
-            <p>Usuario o Password incorrectos</p>
-        {{/if}}
-
-    </div>
-  </div>
-
--->
