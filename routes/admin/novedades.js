@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var newsModel = require('../../models/newsModel');
+var newsModel = require('../../models/novedadesModel');
 
-///*
+/*
 router.get('/', function(req , res, next){
     res.render('admin/news',{
         layout: 'admin/layout',
@@ -11,18 +11,18 @@ router.get('/', function(req , res, next){
 });
 
 module.exports = router;
-//*/
+*/
 
-/*
+///*
 router.get('/', async function(req , res, next){
-    var news =  await newsModel.getNovedades();
+    var novedades =  await newsModel.getNovedades();
 
-    res.render('admin/news',{
-        layout: 'admin/layout',
-        usuario: req.session.nombre,
-        novedades
+        res.render('admin/novedades', {
+            layout: 'admin/layout',
+            usuario: req.session.nombre,
+            novedades
         });
 });
 
 module.exports = router;
-*/
+//*/

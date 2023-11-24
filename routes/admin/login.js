@@ -27,7 +27,7 @@ router.post('/', async (req, res, next) => {
     if (data != undefined){
       req.session.id_usuario = data.id;   //Se almacena el id de usuario para ser utilizado en el codigo de sesion.
       req.session.nombre = data.usuario;  //Se almacena el nombre del usuario.
-      res.redirect('/admin/news');        //Si el usuario es correcto, se redirecciona a la pagina de novedades
+      res.redirect('/admin/novedades');        //Si el usuario es correcto, se redirecciona a la pagina de novedades
     }else{
       res.render('admin/login',{
         layout: 'admin/layout',

@@ -14,7 +14,7 @@ var usersRouter = require('./routes/users');
 //Genero variable "loginRouter"
 var loginRouter = require('./routes/admin/login'); 
 //Genero la variable "adminRouter"
-var adminRouter = require('./routes/admin/news');
+var adminRouter = require('./routes/admin/novedades');
 
 var app = express();
 
@@ -57,7 +57,7 @@ app.use('/users', usersRouter);
 //Indico en que momento voy a utilizar la variable "loginRouter"
 app.use('/admin/login', loginRouter); 
 //Indico que primero ejecuto la variavle "secured" y luego la variable "adminRouter"
-app.use('/admin/news',secured, adminRouter);
+app.use('/admin/novedades',secured, adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
