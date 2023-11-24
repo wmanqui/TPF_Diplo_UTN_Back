@@ -4,7 +4,7 @@ var md5 = require('md5');
 //La función getUserByUsernameAndPassword recibe como parámetros el nombre
 //de usuario y la contraseña y devuelve, en caso de encontrar una coincidencia en la
 //tabla usuarios de nuestra base de datos, la fila correspondiente como un objeto.
-//La estructura "try/catch" sirve para interceptar excepciones y que no lleguen al uasuario .
+//La estructura "try/catch" sirve para interceptar excepciones y que no lleguen al usuario .
 
 async function getUserByUsernameAndPassword(user, password){
     try{

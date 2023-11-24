@@ -19,4 +19,14 @@ async function insertNovedad(obj){
     }
 }
 
+//Realizo la consulta para eliminar registros de la base de datos
+async function deleteNovedadadById(id){
+    var query = "delete from novedades where id = ? ";
+    var rows = await pool.query (query, [id]);
+    return rows; 
+}
+
+
+
+
 module.exports = {getNovedades,insertNovedad}

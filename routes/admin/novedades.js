@@ -13,7 +13,7 @@ router.get('/', async function(req , res, next){
         });
 });
 
-//Este controlaador nos permite ver el formulario de alta
+//Este controlador nos permite ver el formulario de alta
 router.get('/agregar',(req, res, next) =>{
     res.render('admin/agregar',{
         layout: 'admin/layout'
@@ -21,8 +21,8 @@ router.get('/agregar',(req, res, next) =>{
 }); //cierro Get
 
 
-//Este controlador es necesario para capturar los datos enviados por el usuario,
-//los valida y los inserta en la base de datos
+//Este controlador es necesario para capturar los datos ingresados por el usuario,
+//validarlos e insertarlos en la base de datos
 router.post('/agregar', async (req, res, next) => {
     try{
         if(req.body.titulo != "" && req.body.subtitulo != "" && req.body.cuerpo != ""){
@@ -42,5 +42,15 @@ router.post('/agregar', async (req, res, next) => {
         });
     }
 }); 
+
+
+//Este controlador captura las rutas de eliminacion, llama a la función para eliminar la base de datos
+//y pasa como parametro el valor recibido por la url
+router.get('/eliminar/:id', async (req, res, next) => {
+    var id = req.params.id;
+    await novedadesModel.deleteNovedadById(id);
+    res.redirect('/admin/novedades')
+});
+
 
 module.exports = router;
