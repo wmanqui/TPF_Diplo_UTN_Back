@@ -20,7 +20,7 @@ async function insertNovedad(obj){
 }
 
 //Realizo la consulta para eliminar registros de la base de datos
-async function deleteNovedadadById(id){
+async function  deleteNovedadById(id){
     var query = "delete from novedades where id = ? ";
     var rows = await pool.query (query, [id]);
     return rows; 
@@ -44,4 +44,4 @@ async function modificarNovedadById(obj,id){
     }
 };
 
-module.exports = {getNovedades,insertNovedad,deleteNovedadadById,getNovedadById,modificarNovedadById}
+module.exports = {getNovedades,insertNovedad,deleteNovedadById,getNovedadById,modificarNovedadById}
