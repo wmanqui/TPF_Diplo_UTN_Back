@@ -26,7 +26,7 @@ router.get('/agregar',(req, res, next) =>{
 router.post('/agregar', async (req, res, next) => {
     try{
         if(req.body.titulo != "" && req.body.subtitulo != "" && req.body.cuerpo != ""){
-            await novedadesModel.insertNovedad(req.body);
+            await newsModel.insertNovedad(req.body);
             res.redirect('/admin/novedades')
         }else{
             res.render('admin/agregar',{
@@ -48,7 +48,7 @@ router.post('/agregar', async (req, res, next) => {
 //y pasa como parametro el valor recibido por la url
 router.get('/eliminar/:id', async (req, res, next) => {
     var id = req.params.id;
-    await novedadesModel.deleteNovedadById(id);
+    await newsModel.deleteNovedadById(id);
     res.redirect('/admin/novedades')
 });
 
@@ -56,7 +56,7 @@ router.get('/eliminar/:id', async (req, res, next) => {
 //Este controlador imprime el formulario de modificación
 router.get('/modificar/:id', async (req, res, next) =>{
     let id = req.params.id;
-    let novedad = await novedadesModel.getNovedadById(id);
+    let novedad = await newsModel.getNovedadById(id);
     res.render('admin/modificar',{
         layout: 'admin/layout',
         novedad
