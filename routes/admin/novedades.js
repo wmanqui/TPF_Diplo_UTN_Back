@@ -53,4 +53,26 @@ router.get('/eliminar/:id', async (req, res, next) => {
 });
 
 
+//Este controlador imprime el formulario de modificación
+router.get('/modificar/:id', async (req, res, next) =>{
+    let id = req.params.id;
+    let novedad = await novedadesModel.getNovedadById(id);
+    res.render('admin/modificar',{
+        layout: 'admin/layout',
+        novedad
+    });
+});
+
+
+//Este controlador recibe los datos del formulario, 
+//pasarlos a la función que modifica la base de datos
+router.post('/modificar', async (req, res, next) => {
+  //  try{
+
+  //  }
+});
+
+
+
+
 module.exports = router;
