@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors');
 
 //LLamo libreria que permite extraer datos del archivo .env
 require('dotenv').config();
@@ -15,6 +16,8 @@ var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/admin/login'); 
 //Genero la variable "adminRouter"
 var adminRouter = require('./routes/admin/novedades');
+//Genero la variable "apiRouter"
+var apiRouter = require('./routes/api');
 
 var app = express();
 
@@ -58,7 +61,8 @@ app.use('/users', usersRouter);
 app.use('/admin/login', loginRouter); 
 //Indico que primero ejecuto la variavle "secured" y luego la variable "adminRouter"
 app.use('/admin/novedades',secured, adminRouter);
-
+//Indico en que momento voy a utilizar la variable "apiRouter"
+app.use('/api',cors(),apiRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
