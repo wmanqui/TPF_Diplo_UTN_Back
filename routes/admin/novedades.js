@@ -53,23 +53,42 @@ router.get('/eliminar/:id', async (req, res, next) => {
 });
 
 
-//Este controlador imprime el formulario de modificación
+//Este controlador trae el diseño de una sola novedad
+//para que yo puedad modificarlo
+
+
 router.get('/modificar/:id', async (req, res, next) =>{
-    let id = req.params.id;
-    let novedad = await newsModel.getNovedadById(id);
+    var id = req.params.id;
+    console.log(req.params.id);
+    var novedad = await newsModel.getNovedadById(id);
     res.render('admin/modificar',{
         layout: 'admin/layout',
         novedad
-    });
+     });
 });
+
+
 
 
 //Este controlador recibe los datos del formulario, 
 //pasarlos a la función que modifica la base de datos
 router.post('/modificar', async (req, res, next) => {
-  //  try{
-
-  //  }
+    try{
+      let obj = {
+        titulo: req.body.titulo,
+        subtitulo: req.body.subtitulo,
+        cuerpo: req.body.cuerpo
+      }
+      await newsModel.modificarNovedadById(obj, req.body.id);
+      res.redirect('/admin/novedades');
+    }
+    catch(error){
+        console.log(error)
+        res.render('admin/modificar',{
+            layout: 'admin/layout',
+            error: true, message: 'No se modifico la novedad'
+        })
+    }
 });
 
 
