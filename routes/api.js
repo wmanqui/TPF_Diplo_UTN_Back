@@ -10,7 +10,7 @@ router.get('/novedades',async function (req,res,next){
     res.json(novedades);
 });
 
-router.post('/contacto', async (req, res) => {
+router.post('/contact', async (req, res) => {
     const mail = {
         to: 'wmanqui@gmail.com',
         subject: 'Contacto web',
