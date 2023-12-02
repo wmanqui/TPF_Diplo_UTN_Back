@@ -14,7 +14,8 @@ router.post('/contact', async (req, res) => {
     const mail = {
         to: 'wmanqui@gmail.com',
         subject: 'Contacto web',
-        html: `${req.body.nombre} se contacto a traves de la web y quiere más información a este correo: ${req.body.email}  <br> Su telefono es ${req.body.telefono}`
+        html: `${req.body.nombre} se contacto a traves de la web y quiere más información a este correo: ${req.body.email}  <br> Su telefono es ${req.body.telefono}`,
+        text: `${req.body.mensaje}`
     }
     const transport = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
@@ -27,7 +28,6 @@ router.post('/contact', async (req, res) => {
     });
 
     await transport.sendMail(mail)
-
 
     res.status(201).json({
         error: false,
