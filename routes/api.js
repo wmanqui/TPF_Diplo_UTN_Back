@@ -3,21 +3,22 @@ var router = express.Router();
 var newsModel = require('./../models/novedadesModel');
 var nodemailer = require('nodemailer');
 
-
+//Codigo para las novedades
 router.get('/novedades',async function (req,res,next){
     let novedades = await newsModel.getNovedades();
     res.json(novedades);
 });
 
+//Codigo para el envio de mail
 
 router.post('/contact', async (req, res) => {
-    const mail = {
+    const mail = {                                  //Captura los datos del formulario y conforma el mail a ser enviado
         to: 'wmanqui@gmail.com',
         subject: 'Contacto web',
         html: `${req.body.nombre} se contacto a traves de la web y quiere más información a este correo: ${req.body.email}  <br> Su telefono es ${req.body.telefono}`,
         text: `${req.body.mensaje}`
     }
-    const transport = nodemailer.createTransport({
+    const transport = nodemailer.createTransport({  //Toma los datos de configuracion guardados en las variables de entorno
         host: process.env.SMTP_HOST,
         port: process.env.SMTP_PORT,
         secure: false,
@@ -27,7 +28,7 @@ router.post('/contact', async (req, res) => {
         }
     });
 
-    await transport.sendMail(mail)
+    await transport.sendMail(mail)      //Envia el correo electronico
 
     res.status(201).json({
         error: false,
@@ -35,6 +36,5 @@ router.post('/contact', async (req, res) => {
     });
     
 });
-
 
 module.exports = router;
