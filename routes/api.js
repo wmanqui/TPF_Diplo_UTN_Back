@@ -4,11 +4,11 @@ var newsModel = require('./../models/novedadesModel');
 var nodemailer = require('nodemailer');
 
 
-
 router.get('/novedades',async function (req,res,next){
     let novedades = await newsModel.getNovedades();
     res.json(novedades);
 });
+
 
 router.post('/contact', async (req, res) => {
     const mail = {
@@ -19,18 +19,22 @@ router.post('/contact', async (req, res) => {
     const transport = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
         port: process.env.SMTP_PORT,
-        auth:{
-            user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS
+        secure: false,
+        auth: {
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASS
         }
     });
 
     await transport.sendMail(mail)
 
+
     res.status(201).json({
         error: false,
         message: 'Mensaje enviado'
     });
+    
 });
+
 
 module.exports = router;
