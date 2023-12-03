@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
+var fileUpload = require('express-fileupload');
 
 //LLamo libreria que permite extraer datos del archivo .env
 require('dotenv').config();
@@ -53,6 +54,14 @@ secured = async (req, res, next) =>{
       console.log(error);
     }
   }
+
+//Codigo para trabajar con imagenes
+  app.use(fileUpload({
+    useTempFiles: true,
+    tempFileDir: '/tmp/'
+}));
+
+
 
 
 app.use('/', indexRouter);
