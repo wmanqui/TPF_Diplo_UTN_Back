@@ -1,17 +1,17 @@
 
 <div class="container" style="margin-top: 50px;">
     {{!-- inicio fila 1 --}}
-    <div class="row">
+    <div class="row" >
         <p class="text-end">Hola {{usuario}}! <a class="btn btn-danger" href="/admin/login/logout">Cerrar sesión <i class="fas fa-sign-out-alt"> </i></a></p>
     </div>
     {{!-- fin fila 1 --}}
         {{!--  inicio fila 2 --}}
         <div class="row">
             <div class="col-7">
-                <h3>Listado de novedades</h3>
+                <h3>Listado de novedades(productos/servicios)</h3>
             </div>
             <div class="col-5 text-end">
-                <a class="btn btn-success" href="/admin/novedades/agregar"><i class="fas fa-plus float-right" aria-hidden="true"></i>Nuevo</a>
+                <a class="btn btn-success" href="/admin/novedades/agregar"><i class="bi bi-plus"></i>Nuevo</a>
             </div>
         </div>
         {{!-- fin fila 2 --}}
@@ -23,7 +23,7 @@
                         <tr class="table-dark">
                             <th scope="col">#</th>
                             <th scope="col">Titulo</th>
-                            <th scope="col">imagen</th>
+                            <th scope="col">Imagen</th>
                             <th class="text-end">Acciones</th>
                         </tr>
                     </thead>
@@ -34,8 +34,8 @@
                             <td>{{titulo}}</td>
                             <td>{{{imagen}}}</td>
                             <td class="text-end">
-                                <a href="/admin/novedades/modificar/{{id}}" class="btn btn-secondary" ><i class="fa fa-pencil" aria-hidden="true"></i><a/>
-                                <a href="/admin/novedades/eliminar/{{id}}"   class="btn btn-secondary" ><i class="fa fa-trash" aria-hidden="true"></i><a/> 
+                                <a href="/admin/novedades/modificar/{{id}}" class="btn btn-secondary" ><i class="bi bi-pencil-fill" aria-hidden="true"></i><a/>
+                                <a href="/admin/novedades/eliminar/{{id}}"   class="btn btn-secondary" ><i class="bi bi-eraser-fill" aria-hidden="true"></i><a/> 
                             </td>
                         </tr>
                         {{/each}}

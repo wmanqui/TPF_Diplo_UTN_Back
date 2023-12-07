@@ -1,8 +1,53 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.holder{
+  max-width: 960px;
+  margin: 0 auto;
+  /*background-color: yellow;*/
 }
 
-a {
-  color: #00B7FF;
+header{
+  background-color: black;
+  padding: 16px 0;
 }
+
+header h1{
+  color:rgb(246, 174, 19);
+  font-size: 40px;
+  font-weight: 100;
+  font-style: normal; 
+  display: inline-block;
+  position: relative;
+  bottom: 35px;
+  margin-left: 10px;
+}
+
+body{
+  font-family: 'Open Sans', sans-serif ;
+  font-size: 16px;
+  line-height: 20px;
+  background-color: rgb(188, 103, 7);
+}
+
+
+
+footer{
+  background-color: #cc7;
+  clear: both;
+  color: #333;
+  text-align: center;
+  padding: 50px 0;
+  margin-top: 20px;
+}
+
+/********* Estilos de Login  ***********/
+
+
+
+/********** Estilos de Novedades ********/
+.text-end{
+  color: white;
+}
+
+.col-7{
+  color: white;
+}
+

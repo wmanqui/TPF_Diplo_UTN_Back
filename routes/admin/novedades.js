@@ -66,7 +66,7 @@ router.post('/agregar', async (req, res, next) => {
         }else{
             res.render('admin/agregar',{
                 layout: 'admin/layout',
-                error: true,message: 'Todos los campos son requeridos'
+                error: true,message: 'Todos los campos de texto son requeridos'
             })
         }
     }catch(error){
