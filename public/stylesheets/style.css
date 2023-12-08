@@ -1,7 +1,16 @@
+body{
+  font-family: 'Open Sans', sans-serif ;
+  font-size: 16px;
+  line-height: 20px;
+  background-color: rgb(188, 103, 7);
+}
+
+
+
 .holder{
   max-width: 960px;
   margin: 0 auto;
-  /*background-color: yellow;*/
+
 }
 
 header{
@@ -20,12 +29,7 @@ header h1{
   margin-left: 10px;
 }
 
-body{
-  font-family: 'Open Sans', sans-serif ;
-  font-size: 16px;
-  line-height: 20px;
-  background-color: rgb(188, 103, 7);
-}
+
 
 
 
@@ -38,11 +42,7 @@ footer{
   margin-top: 20px;
 }
 
-/********* Estilos de Login  ***********/
 
-
-
-/********** Estilos de Novedades ********/
 .text-end{
   color: white;
 }
